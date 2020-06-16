@@ -1,0 +1,11 @@
+FROM node:alpine
+
+WORKDIR '/var/www/react-app'
+
+COPY package.json .
+RUN npm install
+
+# copy is not alweays necessary if we map the folder inside the docker-compose.yml
+COPY . . 
+
+CMD ["npm", "run", "start"]
