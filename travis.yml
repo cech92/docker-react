@@ -1,3 +1,4 @@
+language: generic
 sudo: required
 services:
     - docker
@@ -6,4 +7,4 @@ before_install:
     - docker build -t cech92/docker-react -f Dockerfile.dev .
 
 script:
-    - docker run cech92/docker-react npm run test -- --covergage
+    - docker run -e CI=true cech92/docker-react npm run test
